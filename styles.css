@@ -1,0 +1,80 @@
+body {
+    background-color: rgb(127, 157,215);
+}
+#main {
+    display: block;
+    background-color: #FFF;
+    border-radius: 5px;
+    margin: auto;
+    margin-top: 200px;
+    padding: 20px;
+    text-align: center;
+}
+.item {
+    vertical-align: top;
+    display: inline-block;
+    border-radius: 5px;
+    width: 250px;
+    height: 250px;
+}
+.item:hover {
+    background-color: rgb(245, 244, 243);
+    cursor: pointer;
+}
+button {
+    display: block;
+    background-color: rgb(42, 90, 255);
+    border: 0px;
+    width: 150px;
+    height: 30px;
+    border-radius: 3px;
+    font-size: 14px;
+    margin-top: 20px;
+    color: #FFF;
+    cursor: pointer;
+}
+h4 {
+    color: rgb(85, 114, 214);
+}
+h3 {
+    color: rgb(85, 114, 214);
+    font-size: 24px;
+}
+p {
+    font-size: 13px;
+    color: rgb(190, 199, 209);
+}
+#back {
+    display: none;
+    opacity: 0.8;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 16px;
+    background-color: rgba(1, 1, 1, 0.725);
+    z-index: 100;
+    overflow: auto;
+}
+#window {
+    width: 290px;
+    height: 290px;
+    margin: 250px auto;
+    display: none;
+    background: #fff;
+    z-index: 200;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+.close {
+    float: right;
+    margin: 0 0 10px 10px;
+    cursor: pointer;
+}

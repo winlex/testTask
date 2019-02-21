@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Loop 1 - Step 1</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css" />
+    <script type=text/javascript>
+        window.onresize = rresize;
+        window.onload = function () {
+            //Если элементов было слишком много, то можно было создать массив данных и отрисоват в цикле при загрузке страницы.
+            //Так как по заданию всего лишь 3 элемента, было решено отверстать вручную.
+            rresize();
+            main.onclick = function (e) {
+                //Было выбрано решение, просто брать данные с div'а, на который был произведен клик.
+                //Так же можно было по элементно взять данные и поэлементно записать в всплывающие окно.
+                //Если данные были бы в массиве (о чем я писал выше), то просто взять и записать в теги элементов.
+                var str = '';
+                var element = e.target;
+                while (element.className != 'item') {
+                    element = element.parentNode;
+                }
+                str += '<img class="close" onclick="show(\'none\')" src="img/cross.svg" width="25" height="25" />\n';
+                str += '<h4 style="margin-top: 0px; padding: 0 0 0 35px; color: #000;">Confirmation</h4>\n';
+                str += element.innerHTML;
+                str += '<center><button>Give feedback</button></center>';
+                document.getElementById('window').innerHTML = str;
+                show('block');
+            };
+        }
+        function show(mod) {
+            document.getElementById('window').style.display = mod;
+            document.getElementById('back').style.display = mod;
+        }
+        function rresize() {
+            document.getElementById('main').style.width = null;
+            if (window.outerWidth > 810) document.getElementById('main').style.width = '760px';
+            else document.getElementById('main').style.width = '260px'; 
+        }
+    </script>
+</head>
+<body>
+    <div onclick="show('none')" id="back"></div>
+    <div id="window">
+    </div>
+    <div id="main">
+        <div class="item">
+            <p><img src="img/device.svg" width="50" height="50" /></p>
+            <h4>MOBILE</h4>
+            <p>Get notifications about new releases in our mobile app.</p>
+            <h3><sup><small>$</small></sup><big>10</big><small><small>/month</small></small></h3>
+        </div>
+        <div class="item">
+            <p><img src="img/laptop.svg" width="50" height="50" /></p>
+            <h4>DESKTOP</h4>
+            <p>Enjoy new episodes on your laptop in browser width our web service, which supports all the platforms.</p>
+            <h3><sup><small>$</small></sup><big>15</big><small><small>/month</small></small></h3>
+        </div>
+        <div class="item">
+            <p><img src="img/monitor.svg" width="50" height="50" /></p>
+            <h4>TV</h4>
+            <p>Watch your favorite series at home on larger screen with out TV application.</p>
+            <h3><sup><small>$</small></sup><big>20</big><small><small>/month</small></small></h3>
+        </div>
+        <center>
+            <button>Give feedback</button>
+        </center>
+    </div>
+</body>
+</html>
